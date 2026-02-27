@@ -6,6 +6,10 @@
       </RouterLink>
 
       <div class="flex items-center gap-3">
+        <Button variant="ghost" size="sm" as-child>
+          <RouterLink :to="{ name: 'contact' }">Contact</RouterLink>
+        </Button>
+
         <!-- Utilisateur connecté -->
         <template v-if="isAuthenticated && user">
           <DropdownMenu>
