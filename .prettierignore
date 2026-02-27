@@ -1,0 +1,7 @@
+node_modules/
+dist/
+build/
+.output/
+postgres-data/
+package-lock.json
+*.lock

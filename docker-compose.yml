@@ -1,0 +1,23 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: boutique_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: boutique_db
+      POSTGRES_USER: boutique_user
+      POSTGRES_PASSWORD: boutique_pass
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U boutique_user -d boutique_db']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres-data:
