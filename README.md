@@ -1,8 +1,8 @@
-# Boutique en Ligne - Vêtements
+# Boutique en Ligne
 
 Mono-repo d'une boutique en ligne de vêtements.
 
-- **Frontend** : Vue 3 + Vite + Vue Router + TypeScript
+- **Frontend** : Vue 3 + Vite + Vue Router + TypeScript + TailWind CSS + Shadcn-Vue
 - **Backend** : Node.js + Express + Prisma + TypeScript
 - **Base de données** : PostgreSQL (Docker)
 
