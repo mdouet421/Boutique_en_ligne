@@ -1,4 +1,5 @@
 import { PrismaClient } from '@prisma/client'
+import bcrypt from 'bcryptjs'
 
 const prisma = new PrismaClient()
 
@@ -233,6 +234,20 @@ const products = [
 ]
 
 async function main() {
+  console.log('Seeding admin user...')
+  const hashedPassword = await bcrypt.hash('admin1234', 10)
+  await prisma.user.upsert({
+    where: { email: 'admin@boutique.fr' },
+    update: {},
+    create: {
+      email: 'admin@boutique.fr',
+      password: hashedPassword,
+      firstName: 'Admin',
+      lastName: 'Boutique',
+      role: 'ADMIN',
+    },
+  })
+
   console.log('Seeding categories...')
   const createdCategories = {}
   for (const cat of categories) {

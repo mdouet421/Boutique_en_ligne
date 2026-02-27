@@ -36,6 +36,7 @@ npm install
 ```bash
 cp backend/.env.example backend/.env
 # Éditer backend/.env avec vos valeurs
+# Vous pouvez valoriser JWT_SECRET avec une valeur aléatoire : openssl rand -base64 48
 ```
 
 ### 4. Lancer la base de données

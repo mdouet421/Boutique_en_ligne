@@ -2,6 +2,7 @@ import 'dotenv/config'
 import express, { Request, Response } from 'express'
 import cors from 'cors'
 import productsRouter from './routes/products.js'
+import authRouter from './routes/auth.js'
 
 const app = express()
 const PORT = process.env.PORT ?? 3000
@@ -14,6 +15,7 @@ app.get('/api/health', (_req: Request, res: Response) => {
 })
 
 app.use('/api/products', productsRouter)
+app.use('/api/auth', authRouter)
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`)
