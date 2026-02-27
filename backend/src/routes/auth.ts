@@ -31,7 +31,7 @@ router.post('/register', async (req: Request, res: Response) => {
 
   res.status(201).json({
     token,
-    user: { id: user.id, email: user.email, firstName: user.firstName, lastName: user.lastName },
+    user: { id: user.id, email: user.email, firstName: user.firstName, lastName: user.lastName, role: user.role },
   })
 })
 
@@ -61,7 +61,7 @@ router.post('/login', async (req: Request, res: Response) => {
 
   res.json({
     token,
-    user: { id: user.id, email: user.email, firstName: user.firstName, lastName: user.lastName },
+    user: { id: user.id, email: user.email, firstName: user.firstName, lastName: user.lastName, role: user.role },
   })
 })
 

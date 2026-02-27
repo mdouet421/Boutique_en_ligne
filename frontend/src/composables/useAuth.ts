@@ -8,6 +8,7 @@ const token = ref<string | null>(localStorage.getItem(TOKEN_KEY))
 const user = ref<User | null>(JSON.parse(localStorage.getItem(USER_KEY) ?? 'null'))
 
 const isAuthenticated = computed(() => token.value !== null)
+const isAdmin = computed(() => user.value?.role === 'ADMIN')
 
 function persist(data: AuthResponse) {
   token.value = data.token
@@ -59,5 +60,5 @@ function logout() {
 }
 
 export function useAuth() {
-  return { token, user, isAuthenticated, login, register, logout }
+  return { token, user, isAuthenticated, isAdmin, login, register, logout }
 }
